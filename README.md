@@ -1,3 +1,5 @@
+<img width="2559" height="1032" alt="Screenshot" src="https://github.com/user-attachments/assets/56aad4b2-f7cc-4fee-8a38-abb234ac317d" />
+
 # Code Companion Pet (VS Code Extension)
 
 A non-interrupting sidebar coding companion.
