@@ -1,0 +1,77 @@
+{
+  "name": "code-companion-pet",
+  "displayName": "Code Companion Pet",
+  "description": "A non-interrupting coding companion that reacts to syntax quality.",
+  "version": "0.1.0",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [
+    "onStartupFinished",
+    "onView:codeCompanionPet.view"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codeCompanionPet.testHappy",
+        "title": "Code Companion Pet: Test Happy"
+      },
+      {
+        "command": "codeCompanionPet.testAngry",
+        "title": "Code Companion Pet: Test Angry"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "codeCompanionPet",
+          "title": "Code Pet",
+          "icon": "media/pet.svg"
+        }
+      ]
+    },
+    "views": {
+      "codeCompanionPet": [
+        {
+          "id": "codeCompanionPet.view",
+          "name": "Companion",
+          "type": "webview"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Code Companion Pet",
+      "properties": {
+        "codeCompanionPet.petName": {
+          "type": "string",
+          "default": "Zolix",
+          "description": "Name shown for your companion."
+        },
+        "codeCompanionPet.petCharacter": {
+          "type": "string",
+          "enum": ["dog", "pika"],
+          "default": "dog",
+          "description": "Character model used in the companion view."
+        },
+        "codeCompanionPet.petPuppySounds": {
+          "type": "boolean",
+          "default": false,
+          "description": "When enabled (dog mode), occasional soft puppy-like sounds play."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.3"
+  }
+}
